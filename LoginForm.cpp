@@ -14,6 +14,18 @@ int main()
 {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
-    Application::Run(gcnew LibraryMG::LoginForm);
+    LibraryMG::LoginForm loginForm;
+
+    loginForm.ShowDialog();
+    User^ user = loginForm.user;
+
+    if (user != nullptr) {
+        LibraryMG::MainForm mainForm;
+        Application::Run(%mainForm);
+    }
+    else {
+
+    }
+    
     return 0;
 }

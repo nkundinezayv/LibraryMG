@@ -2,6 +2,7 @@
 #include "ForgetForm.h"
 #include "user.h"
 #include"MainForm.h"
+#include<stdlib.h>;
 namespace LibraryMG {
 
 	using namespace System;
@@ -499,12 +500,11 @@ private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e)
 	     Login_panel->Show();
 }
 
-public: static bool isForgotOPEN = false;
+public:  bool isForgotOPEN = false;
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (isForgotOPEN) {
-		ForgetForm^ forgetForm = gcnew ForgetForm();
-		forgetForm->Show();
-		isForgotOPEN = true;
+		 ForgetForm^ forgetForm = gcnew ForgetForm();
+    forgetForm->Show();
 	}
 	else {
 		nullptr;
@@ -513,7 +513,7 @@ private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
 }
-	   public:  LibraryMG::MainForm^ mainForm = nullptr;
+	   
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ email = this->btnemail->Text;
 	String^ password = this->btnpassword->Text;
@@ -525,6 +525,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		String^ connString = "Data Source=161.35.68.179;Initial Catalog=LibraryMG;Persist Security Info=True;User ID=SA;Password=Producer@123";
 		SqlConnection sqlConn(connString);
 		sqlConn.Open();
+		
 		String^ sqlQuery = "SELECT * FROM users WHERE email=@email AND password=@pwd";
 			SqlCommand command(sqlQuery, % sqlConn);
 			command.Parameters->AddWithValue("@email", email);
@@ -540,13 +541,13 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 				user->password = reader->GetString(4);
 				user->username = reader->GetString(5);
 				user->pwdhintl = reader->GetString(6);
-				this -> Close();
 
-				MainForm^ mainForm = gcnew MainForm();
-				mainForm->Show();
+				this->Close();
+
+				
 			}
 			else {
-				reader->Close();
+				
 				MessageBox::Show("Email or password is incorrect", "try again",
 				MessageBoxButtons::OK);
 			}

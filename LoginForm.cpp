@@ -20,7 +20,7 @@ int main()
     User^ user = loginForm.user;
 
     if (user != nullptr) {
-        LibraryMG::MainForm mainForm;
+        LibraryMG::MainForm mainForm(user);
         Application::Run(%mainForm);
     }
     else {

@@ -114,17 +114,33 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminPage.cpp" />
     <ClCompile Include="ForgetForm.cpp" />
+    <ClCompile Include="HomePage.cpp" />
+    <ClCompile Include="LibraryPage.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="ReturnPage.cpp" />
+    <ClCompile Include="UpdatesPage.cpp" />
+    <ClCompile Include="UserPage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ForgetForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="HomePage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LibraryPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
@@ -133,17 +149,44 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ReturnPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdatesPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="user.h" />
+    <ClInclude Include="UserPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminPage.resx">
+      <DependentUpon>AdminPage.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ForgetForm.resx">
       <DependentUpon>ForgetForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibraryPage.resx">
+      <DependentUpon>LibraryPage.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnPage.resx">
+      <DependentUpon>ReturnPage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatesPage.resx">
+      <DependentUpon>UpdatesPage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPage.resx">
+      <DependentUpon>UserPage.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

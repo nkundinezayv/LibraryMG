@@ -1,5 +1,10 @@
 #pragma once
 #include"user.h"
+#include "HomePage.h"
+#include "LibraryPage.h"
+#include "UserPage.h"
+#include "ReturnPage.h"
+#include "UpdatesPage.h"
 
 namespace LibraryMG {
 
@@ -67,6 +72,7 @@ namespace LibraryMG {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Panel^ panel5;
 
 
 
@@ -102,6 +108,7 @@ namespace LibraryMG {
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->panel5 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -122,10 +129,9 @@ namespace LibraryMG {
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->button2);
 			this->panel1->Controls->Add(this->button1);
-			this->panel1->Location = System::Drawing::Point(0, -2);
-			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->panel1->Location = System::Drawing::Point(0, -1);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(172, 854);
+			this->panel1->Size = System::Drawing::Size(115, 555);
 			this->panel1->TabIndex = 0;
 			// 
 			// button7
@@ -133,9 +139,10 @@ namespace LibraryMG {
 			this->button7->FlatAppearance->BorderSize = 0;
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.Image")));
-			this->button7->Location = System::Drawing::Point(0, 164);
+			this->button7->Location = System::Drawing::Point(0, 107);
+			this->button7->Margin = System::Windows::Forms::Padding(2);
 			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(172, 58);
+			this->button7->Size = System::Drawing::Size(115, 38);
 			this->button7->TabIndex = 10;
 			this->button7->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button7->UseVisualStyleBackColor = true;
@@ -145,17 +152,19 @@ namespace LibraryMG {
 			// 
 			this->panel2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel2.BackgroundImage")));
 			this->panel2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->panel2->Location = System::Drawing::Point(3, 644);
+			this->panel2->Location = System::Drawing::Point(2, 419);
+			this->panel2->Margin = System::Windows::Forms::Padding(2);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(166, 100);
+			this->panel2->Size = System::Drawing::Size(111, 65);
 			this->panel2->TabIndex = 9;
 			// 
 			// pictureBox2
 			// 
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(44, 14);
+			this->pictureBox2->Location = System::Drawing::Point(29, 9);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(93, 97);
+			this->pictureBox2->Size = System::Drawing::Size(62, 63);
 			this->pictureBox2->TabIndex = 8;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -164,9 +173,10 @@ namespace LibraryMG {
 			this->button6->FlatAppearance->BorderSize = 0;
 			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.Image")));
-			this->button6->Location = System::Drawing::Point(0, 548);
+			this->button6->Location = System::Drawing::Point(0, 356);
+			this->button6->Margin = System::Windows::Forms::Padding(2);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(172, 58);
+			this->button6->Size = System::Drawing::Size(115, 38);
 			this->button6->TabIndex = 7;
 			this->button6->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button6->UseVisualStyleBackColor = true;
@@ -177,69 +187,78 @@ namespace LibraryMG {
 			this->button5->FlatAppearance->BorderSize = 0;
 			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
-			this->button5->Location = System::Drawing::Point(0, 228);
+			this->button5->Location = System::Drawing::Point(0, 148);
+			this->button5->Margin = System::Windows::Forms::Padding(2);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(172, 58);
+			this->button5->Size = System::Drawing::Size(115, 38);
 			this->button5->TabIndex = 6;
 			this->button5->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MainForm::button5_Click);
 			// 
 			// button4
 			// 
 			this->button4->FlatAppearance->BorderSize = 0;
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
-			this->button4->Location = System::Drawing::Point(0, 484);
+			this->button4->Location = System::Drawing::Point(0, 315);
+			this->button4->Margin = System::Windows::Forms::Padding(2);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(172, 58);
+			this->button4->Size = System::Drawing::Size(115, 38);
 			this->button4->TabIndex = 5;
 			this->button4->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MainForm::button4_Click);
 			// 
 			// button3
 			// 
 			this->button3->FlatAppearance->BorderSize = 0;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
-			this->button3->Location = System::Drawing::Point(0, 420);
+			this->button3->Location = System::Drawing::Point(0, 273);
+			this->button3->Margin = System::Windows::Forms::Padding(2);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(172, 58);
+			this->button3->Size = System::Drawing::Size(115, 38);
 			this->button3->TabIndex = 4;
 			this->button3->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MainForm::button3_Click);
 			// 
 			// button2
 			// 
 			this->button2->FlatAppearance->BorderSize = 0;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
-			this->button2->Location = System::Drawing::Point(0, 356);
+			this->button2->Location = System::Drawing::Point(0, 231);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(172, 58);
+			this->button2->Size = System::Drawing::Size(115, 38);
 			this->button2->TabIndex = 3;
 			this->button2->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MainForm::button2_Click);
 			// 
 			// button1
 			// 
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->Location = System::Drawing::Point(0, 292);
+			this->button1->Location = System::Drawing::Point(0, 190);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(172, 58);
+			this->button1->Size = System::Drawing::Size(115, 38);
 			this->button1->TabIndex = 2;
 			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_1);
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(1084, 25);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->pictureBox1->Location = System::Drawing::Point(723, 16);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(36, 37);
+			this->pictureBox1->Size = System::Drawing::Size(24, 24);
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &MainForm::pictureBox1_Click);
@@ -253,10 +272,9 @@ namespace LibraryMG {
 			this->panel3->Controls->Add(this->panel4);
 			this->panel3->Controls->Add(this->label2);
 			this->panel3->Controls->Add(this->pictureBox1);
-			this->panel3->Location = System::Drawing::Point(171, -2);
-			this->panel3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->panel3->Location = System::Drawing::Point(114, -1);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1133, 78);
+			this->panel3->Size = System::Drawing::Size(755, 51);
 			this->panel3->TabIndex = 2;
 			// 
 			// label1
@@ -265,8 +283,7 @@ namespace LibraryMG {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Sitka Banner", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->label1->Location = System::Drawing::Point(320, 16);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(213, 10);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(77, 23);
 			this->label1->TabIndex = 8;
@@ -275,17 +292,19 @@ namespace LibraryMG {
 			// pictureBox3
 			// 
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(291, 25);
+			this->pictureBox3->Location = System::Drawing::Point(194, 16);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(22, 25);
+			this->pictureBox3->Size = System::Drawing::Size(15, 16);
 			this->pictureBox3->TabIndex = 7;
 			this->pictureBox3->TabStop = false;
 			// 
 			// panel4
 			// 
-			this->panel4->Location = System::Drawing::Point(0, 77);
+			this->panel4->Location = System::Drawing::Point(0, 50);
+			this->panel4->Margin = System::Windows::Forms::Padding(2);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(1133, 653);
+			this->panel4->Size = System::Drawing::Size(755, 424);
 			this->panel4->TabIndex = 3;
 			// 
 			// label2
@@ -294,26 +313,34 @@ namespace LibraryMG {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Sitka Banner", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->label2->Location = System::Drawing::Point(446, 0);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(297, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(129, 39);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Dashboard";
 			// 
+			// panel5
+			// 
+			this->panel5->Location = System::Drawing::Point(120, 56);
+			this->panel5->Name = L"panel5";
+			this->panel5->Size = System::Drawing::Size(737, 485);
+			this->panel5->TabIndex = 3;
+			this->panel5->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::panel5_Paint_1);
+			// 
 			// MainForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::MenuBar;
-			this->ClientSize = System::Drawing::Size(1304, 851);
+			this->ClientSize = System::Drawing::Size(869, 553);
+			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MainForm";
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -343,6 +370,71 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+
+private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel5_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	panel5->Controls->Clear();
+	HomePage^ homePage;
+	button5->BackColor = System::Drawing::Color::Blue;
+	//Button1->BackColor = System::Drawing::SystemColors::Control;
+	if (homePage == nullptr) {
+		homePage = gcnew HomePage();
+		homePage->TopLevel = false;  
+	}
+	panel5->Controls->Add(homePage);
+	homePage->Show();
+}
+private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	button1->BackColor = System::Drawing::Color::Blue;
+	panel5->Controls->Clear();
+	LibraryPage^ libraryPage;
+
+	if (libraryPage == nullptr) {
+		libraryPage = gcnew LibraryPage();
+		libraryPage->TopLevel = false;
+	}
+	panel5->Controls->Add(libraryPage);
+	libraryPage->Show();
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	button2->BackColor = System::Drawing::Color::Blue;
+	panel5->Controls->Clear();
+	UserPage^ userPage;
+
+	if (userPage == nullptr) {
+		userPage = gcnew UserPage();
+		userPage->TopLevel = false;
+	}
+	panel5->Controls->Add(userPage);
+	userPage->Show();
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	button3->BackColor = System::Drawing::Color::Blue;
+	panel5->Controls->Clear();
+	ReturnPage^ returnPage;
+
+	if (returnPage == nullptr) {
+		returnPage = gcnew ReturnPage();
+		returnPage->TopLevel = false;
+	}
+	panel5->Controls->Add(returnPage);
+	returnPage->Show();
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	button4->BackColor = System::Drawing::Color::Blue;
+	panel5->Controls->Clear();
+	UpdatesPage^ updatesPage;
+
+	if (updatesPage == nullptr) {
+		updatesPage = gcnew UpdatesPage();
+		updatesPage->TopLevel = false;
+	}
+	panel5->Controls->Add(updatesPage);
+	updatesPage->Show();
 }
 };
 }

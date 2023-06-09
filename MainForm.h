@@ -5,6 +5,8 @@
 #include "UserPage.h"
 #include "ReturnPage.h"
 #include "UpdatesPage.h"
+#include "UserPage.h"
+#include "AdminPage.h"
 
 namespace LibraryMG {
 
@@ -27,15 +29,17 @@ namespace LibraryMG {
 			//
 			//TODO: Add the constructor code here
 			//
+
 			if (user->isAdmin == "true") {
 				button7->Show();
 				label1->Text = "Admin";
-
 			}
 			else {
 				button7->Hide();
 				label1->Text = user->username;
 			}
+			label1->Text = user->email;
+			label2->Text = user->name;
 		}
 
 	protected:
@@ -365,7 +369,16 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 	MessageBox::Show("Are sure you want to log out", "Log out", MessageBoxButtons::YesNo);
 }
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+	panel5->Controls->Clear();
+	AdminPage^ adminPage;
+	button5->BackColor = System::Drawing::Color::Blue;
+	//Button1->BackColor = System::Drawing::SystemColors::Control;
+	if (adminPage == nullptr) {
+		adminPage = gcnew AdminPage();
+		adminPage->TopLevel = false;
+	}
+	panel5->Controls->Add(adminPage);
+	adminPage->Show();
 }
 private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }

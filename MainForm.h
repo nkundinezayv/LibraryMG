@@ -8,6 +8,7 @@
 #include "UserPage.h"
 #include "AdminPage.h"
 
+
 namespace LibraryMG {
 
 	using namespace System;
@@ -366,7 +367,17 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	MessageBox::Show("Are sure you want to log out", "Log out", MessageBoxButtons::YesNo);
+	System::Windows::Forms::DialogResult result = MessageBox::Show("Are you sure you want to log out?", "Log out", MessageBoxButtons::YesNo);
+
+	
+	if (result == System::Windows::Forms::DialogResult::Yes) {
+		this->Close();
+
+	}
+	else {
+		
+		MessageBox::Show("You chose No", "Log out", MessageBoxButtons::OK);
+	}
 }
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 	panel5->Controls->Clear();

@@ -95,7 +95,7 @@ namespace LibraryMG {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(315, 32);
+			this->label1->Location = System::Drawing::Point(326, 42);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(67, 13);
 			this->label1->TabIndex = 0;
@@ -109,7 +109,7 @@ namespace LibraryMG {
 			this->button1->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
 			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button1->Location = System::Drawing::Point(167, 94);
+			this->button1->Location = System::Drawing::Point(178, 104);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(118, 58);
 			this->button1->TabIndex = 1;
@@ -124,7 +124,7 @@ namespace LibraryMG {
 			this->button2->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
 			this->button2->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button2->Location = System::Drawing::Point(167, 171);
+			this->button2->Location = System::Drawing::Point(178, 181);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(118, 58);
 			this->button2->TabIndex = 2;
@@ -139,7 +139,7 @@ namespace LibraryMG {
 			this->button3->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
 			this->button3->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button3->Location = System::Drawing::Point(318, 94);
+			this->button3->Location = System::Drawing::Point(329, 104);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(118, 58);
 			this->button3->TabIndex = 3;
@@ -154,7 +154,7 @@ namespace LibraryMG {
 			this->button4->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
 			this->button4->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button4->Location = System::Drawing::Point(318, 171);
+			this->button4->Location = System::Drawing::Point(329, 181);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(118, 58);
 			this->button4->TabIndex = 4;
@@ -169,7 +169,7 @@ namespace LibraryMG {
 			this->button5->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
 			this->button5->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button5->Location = System::Drawing::Point(464, 171);
+			this->button5->Location = System::Drawing::Point(475, 181);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(118, 58);
 			this->button5->TabIndex = 5;
@@ -184,7 +184,7 @@ namespace LibraryMG {
 			this->button6->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.Image")));
 			this->button6->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button6->Location = System::Drawing::Point(464, 94);
+			this->button6->Location = System::Drawing::Point(475, 104);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(118, 58);
 			this->button6->TabIndex = 6;
@@ -199,7 +199,7 @@ namespace LibraryMG {
 			this->button7->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.Image")));
 			this->button7->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button7->Location = System::Drawing::Point(167, 261);
+			this->button7->Location = System::Drawing::Point(178, 271);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(118, 58);
 			this->button7->TabIndex = 7;
@@ -214,7 +214,7 @@ namespace LibraryMG {
 			this->button8->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button8.Image")));
 			this->button8->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button8->Location = System::Drawing::Point(318, 261);
+			this->button8->Location = System::Drawing::Point(329, 271);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(118, 58);
 			this->button8->TabIndex = 8;
@@ -229,7 +229,7 @@ namespace LibraryMG {
 			this->button9->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
 			this->button9->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button9->Location = System::Drawing::Point(464, 261);
+			this->button9->Location = System::Drawing::Point(475, 271);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(118, 58);
 			this->button9->TabIndex = 9;
@@ -240,7 +240,7 @@ namespace LibraryMG {
 			// 
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox1->Location = System::Drawing::Point(96, 269);
+			this->pictureBox1->Location = System::Drawing::Point(107, 279);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(49, 50);
 			this->pictureBox1->TabIndex = 10;
@@ -250,7 +250,7 @@ namespace LibraryMG {
 			// 
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(96, 179);
+			this->pictureBox2->Location = System::Drawing::Point(107, 189);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(49, 50);
 			this->pictureBox2->TabIndex = 11;
@@ -260,7 +260,7 @@ namespace LibraryMG {
 			// 
 			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
 			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox3->Location = System::Drawing::Point(96, 102);
+			this->pictureBox3->Location = System::Drawing::Point(107, 112);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(49, 50);
 			this->pictureBox3->TabIndex = 12;
@@ -270,7 +270,7 @@ namespace LibraryMG {
 			// 
 			this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
 			this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox4->Location = System::Drawing::Point(388, 23);
+			this->pictureBox4->Location = System::Drawing::Point(399, 33);
 			this->pictureBox4->Name = L"pictureBox4";
 			this->pictureBox4->Size = System::Drawing::Size(32, 31);
 			this->pictureBox4->TabIndex = 13;
@@ -280,9 +280,9 @@ namespace LibraryMG {
 			// 
 			this->pictureBox5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.BackgroundImage")));
 			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox5->Location = System::Drawing::Point(-3, 325);
+			this->pictureBox5->Location = System::Drawing::Point(59, 335);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(708, 109);
+			this->pictureBox5->Size = System::Drawing::Size(708, 72);
 			this->pictureBox5->TabIndex = 14;
 			this->pictureBox5->TabStop = false;
 			// 
@@ -290,7 +290,7 @@ namespace LibraryMG {
 			// 
 			this->pictureBox6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.BackgroundImage")));
 			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox6->Location = System::Drawing::Point(96, 12);
+			this->pictureBox6->Location = System::Drawing::Point(107, 22);
 			this->pictureBox6->Name = L"pictureBox6";
 			this->pictureBox6->Size = System::Drawing::Size(70, 58);
 			this->pictureBox6->TabIndex = 15;

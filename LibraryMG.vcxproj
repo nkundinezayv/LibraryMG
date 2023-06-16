@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminPage.cpp" />
+    <ClCompile Include="AllUsers1.cpp" />
     <ClCompile Include="ForgetForm.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="LibraryPage.cpp" />
@@ -134,6 +135,12 @@
     <ClInclude Include="AdminPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="AllUsers1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="book.h" />
+    <ClInclude Include="borrowing.h" />
+    <ClInclude Include="DB_CONN.h" />
     <ClInclude Include="ForgetForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -163,6 +170,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AdminPage.resx">
       <DependentUpon>AdminPage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllUsers1.resx">
+      <DependentUpon>AllUsers1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForgetForm.resx">
       <DependentUpon>ForgetForm.h</DependentUpon>

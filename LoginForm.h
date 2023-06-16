@@ -1,8 +1,9 @@
 #pragma once
-#include "ForgetForm.h"
 #include "user.h"
 #include"MainForm.h"
 #include<stdlib.h>;
+#include "ForgetForm.h"
+#include "DB_CONN.h"
 namespace LibraryMG {
 
 	using namespace System;
@@ -636,9 +637,8 @@ private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e)
 
 public:  bool isForgotOPEN = false;
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
-	
-	
-	
+	//ForgetForm^ obj;
+	//obj->Show();
 }
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
@@ -652,12 +652,10 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			"Email or Password Empty",MessageBoxButtons::OK);
 		return;
 	}try {
-		String^ connString = "Data Source=161.35.68.179;Initial Catalog=LibraryMG;Persist Security Info=True;User ID=SA;Password=Producer@123";
-		SqlConnection sqlConn(connString);
-		sqlConn.Open();
-		
+		SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
+		sqlConn->Open();
 		String^ sqlQuery = "SELECT * FROM users WHERE email=@email AND password=@pwd";
-			SqlCommand command(sqlQuery, % sqlConn);
+			SqlCommand command(sqlQuery, sqlConn);
 			command.Parameters->AddWithValue("@email", email);
 			command.Parameters->AddWithValue("@pwd", password);
 	

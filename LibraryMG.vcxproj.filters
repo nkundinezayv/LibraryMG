@@ -48,6 +48,9 @@
     <ClCompile Include="UpdatesPage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AllUsers1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -78,6 +81,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UpdatesPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AllUsers1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="book.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="borrowing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DB_CONN.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

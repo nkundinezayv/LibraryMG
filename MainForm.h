@@ -7,7 +7,7 @@
 #include "UpdatesPage.h"
 #include "UserPage.h"
 #include "AdminPage.h"
-
+#include "LoginForm.h"
 
 namespace LibraryMG {
 
@@ -371,8 +371,9 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 
 	
 	if (result == System::Windows::Forms::DialogResult::Yes) {
+		//LoginForm^ loginForm = gcnew LoginForm();
+		//loginForm->Show();
 		this->Close();
-
 	}
 	else {
 		

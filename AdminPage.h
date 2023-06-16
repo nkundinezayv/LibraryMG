@@ -1,5 +1,5 @@
 #pragma once
-
+#include"AllUsers1.h"
 namespace LibraryMG {
 
 	using namespace System;
@@ -115,6 +115,7 @@ namespace LibraryMG {
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"All users";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &AdminPage::button1_Click);
 			// 
 			// button2
 			// 
@@ -332,5 +333,10 @@ namespace LibraryMG {
 
 		}
 #pragma endregion
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		AllUsers^ loginForm = gcnew AllUsers();
+		 //Show the login form
+		loginForm->Show();
+	}
+};
 }

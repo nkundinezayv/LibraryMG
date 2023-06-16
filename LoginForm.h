@@ -4,6 +4,7 @@
 #include<stdlib.h>;
 #include "ForgetForm.h"
 #include "DB_CONN.h"
+#include "LoginFun.h"
 namespace LibraryMG {
 
 	using namespace System;
@@ -613,7 +614,7 @@ namespace LibraryMG {
 
 		}
 #pragma endregion
-	public: User^ user = nullptr;
+	//public: User^ user = nullptr;
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
@@ -647,42 +648,8 @@ private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArg
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ email = this->btnemail->Text;
 	String^ password = this->btnpassword->Text;
-	if (email->Length == 0 || password->Length == 0) {
-		MessageBox::Show("Please enter email and password",
-			"Email or Password Empty",MessageBoxButtons::OK);
-		return;
-	}try {
-		SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
-		sqlConn->Open();
-		String^ sqlQuery = "SELECT * FROM users WHERE email=@email AND password=@pwd";
-			SqlCommand command(sqlQuery, sqlConn);
-			command.Parameters->AddWithValue("@email", email);
-			command.Parameters->AddWithValue("@pwd", password);
-	
-			SqlDataReader^ reader = command.ExecuteReader();
-			if (reader->Read()) {
-				user = gcnew User;
-				user->id = reader->GetInt32(0);
-				user->name = reader->GetString(1);
-				user->email = reader->GetString(2);
-				user->isAdmin = reader->GetString(3);
-				user->password = reader->GetString(4);
-				user->username = reader->GetString(5);
-				user->pwdhintl = reader->GetString(6);
-
-				this->Close();
-
-			}
-			else {
-				
-				MessageBox::Show("Email or password is incorrect", "try again",
-				MessageBoxButtons::OK);
-			}
-	}
-	catch (Exception^ e) {
-		MessageBox::Show("Failed to connect to database",
-			"Database connection Error", MessageBoxButtons::OK);
-	}
+	Login^ login = gcnew Login();
+	login->AuthenticateUser(email, password);
 }
 
 private: System::Void btnemail_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -698,42 +665,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ pwdhintl = textBox1->Text;
 	String^ isAdmin = "false";
 
-	if (name->Length == 0 || email->Length == 0 || username->Length == 0 || password->Length == 0 || pwdhintl->Length == 0) {
-		MessageBox::Show("Please enter all fields", "One or more fields are empty", MessageBoxButtons::OK);
-	}
-	else {
-
-		try {
-			String^ connString = "Data Source=161.35.68.179;Initial Catalog=LibraryMG;Persist Security Info=True;User ID=SA;Password=Producer@123";
-			SqlConnection sqlConn(connString);
-			sqlConn.Open();
-
-			String^ sqlQuery = "INSERT INTO users " + "(name, email, isAdmin, password, username, pwdhintl) VALUES " +
-				"(@name, @email, @isAdmin, @password, @username, @pwdhintl);";
-			SqlCommand command(sqlQuery, % sqlConn);
-			command.Parameters->AddWithValue("@name", name);
-			command.Parameters->AddWithValue("@email", email);
-			command.Parameters->AddWithValue("@isAdmin", isAdmin);
-			command.Parameters->AddWithValue("@password", password);
-			command.Parameters->AddWithValue("@username", username);
-			command.Parameters->AddWithValue("@pwdhintl", pwdhintl);
-
-			command.ExecuteNonQuery();
-			user = gcnew User;
-			user->name = name;
-			user->email = email;
-			user->isAdmin = isAdmin;
-			user->password = password;
-			user->username = username;
-			user->pwdhintl = pwdhintl;
-
-			this->Close();
-		}
-		catch (Exception^ ex) {
-			MessageBox::Show("Failed to register new user", "Register Failed", MessageBoxButtons::OK);
-	 }
-
-	}
+	
 }
 };
 }

@@ -4,7 +4,6 @@
 using namespace System;
 using namespace System::Data::SqlClient;
 
-
 public ref class Db_CONN {
 public:
     static SqlConnection^ GetSqlConnection() {

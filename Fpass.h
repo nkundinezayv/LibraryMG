@@ -231,14 +231,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
 	sqlConn->Open();
 
-	// Check if the email exists and the hint password matches
+	
 	String^ query = String::Format("SELECT pwdhintl FROM users WHERE email = '{0}'", email);
 	SqlCommand^ command = gcnew SqlCommand(query, sqlConn);
 	String^ storedHintPassword = static_cast<String^>(command->ExecuteScalar());
 
 	if (storedHintPassword != nullptr && storedHintPassword == hintPassword)
 	{
-		// Update the password
+		
 		query = String::Format("UPDATE users SET password = '{0}' WHERE email = '{1}'", newPassword, email);
 		command = gcnew SqlCommand(query, sqlConn);
 		command->ExecuteNonQuery();

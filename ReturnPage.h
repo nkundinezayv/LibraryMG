@@ -197,15 +197,12 @@ private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^
 		if (dataGridView->SelectedRows->Count > 0) {
 			DataGridViewRow^ selectedRow = dataGridView->SelectedRows[0];
 
-			// Retrieve book information from the selected row
 			int bookID = Convert::ToInt32(selectedRow->Cells["Id"]->Value);
 			String^ bookTitle = selectedRow->Cells["Booktitle"]->Value->ToString();
 			String^ bookAuthor = selectedRow->Cells["author"]->Value->ToString();
 
-			// Get the current date as the return date
 			String^ returnDate = DateTime::Today.ToShortDateString();
 
-			// Insert a new row into the "returnBook" table
 			String^ insertQuery = "INSERT INTO returnBook (BookID, BookTitle, UserId, BookAuthor, ReturnDate) VALUES (@BookID, @BookTitle, @UserId, @BookAuthor, @ReturnDate)";
 			SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
 			sqlConn->Open();
@@ -218,21 +215,19 @@ private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^
 			insertCommand->Parameters->AddWithValue("@UserId", userid);
 			insertCommand->ExecuteNonQuery();
 
-			// Get the current noBooksav value from the Books table
 			String^ getNoBooksavQuery = String::Format("SELECT noBooksav FROM Books WHERE Id = {0}", bookID);
 			SqlCommand^ getNoBooksavCommand = gcnew SqlCommand(getNoBooksavQuery, sqlConn);
 			int noBooksav = Convert::ToInt32(getNoBooksavCommand->ExecuteScalar());
 
-			// Increment the noBooksav value
+			
 			noBooksav++;
 
-			// Update the Books table with the incremented value
+		
 			String^ updateQuery = String::Format("UPDATE Books SET noBooksav = {0} WHERE Id = {1}", noBooksav, bookID);
 			SqlCommand^ updateCommand = gcnew SqlCommand(updateQuery, sqlConn);
 			updateCommand->ExecuteNonQuery();
 
 
-			// Delete the book from the Borrowings table
 			String^ deleteQuery = "DELETE FROM Borrowings WHERE BookID = @BookID AND UserId = @UserId";
 			;
 
@@ -241,7 +236,6 @@ private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^
 			deleteCommand->Parameters->AddWithValue("@UserId", userid);
 			deleteCommand->ExecuteNonQuery();
 
-			// Close the database connection
 			sqlConn->Close();
 
 			MessageBox::Show(String::Format("You have returned the book: {0} by {1}\nReturn Date: {2}", bookTitle, bookAuthor, returnDate), "Book Returned", MessageBoxButtons::OK, MessageBoxIcon::Information);

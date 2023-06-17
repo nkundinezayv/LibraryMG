@@ -151,7 +151,7 @@ private: System::Void AllU_Load(System::Object^ sender, System::EventArgs^ e) {
 	dataGridView1->DataSource = dataTable;
 	dataGridView1->ReadOnly = true;
 
-	// Set AutoSizeMode for each column
+	
 	for (int i = 0; i < dataGridView1->Columns->Count; i++) {
 		dataGridView1->Columns[i]->AutoSizeMode = DataGridViewAutoSizeColumnMode::AllCells;
 	}

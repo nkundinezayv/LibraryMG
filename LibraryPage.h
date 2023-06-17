@@ -285,7 +285,7 @@ private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^
 			String^ Author = selectedRow->Cells["author"]->Value->ToString();
 			
 			if (noBooksav >= 1) {
-				// Decrement the number of available books
+				
 				noBooksav--;
 
 				
@@ -299,12 +299,9 @@ private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^
 				
 				
 				
-				// Perform the borrowing logic here
-				//DateTime returnDate = returnDatepicker->Value; // Assuming you have already retrieved the return date
-
-				// Insert a new row into the "Borrowings" table
-				String^ borrowedDate = DateTime::Today.ToShortDateString(); // Get the current date as the borrowed date
-				String^ returnDate = returnDatepicker->Value.ToShortDateString(); // Get the chosen return date
+				
+				String^ borrowedDate = DateTime::Today.ToShortDateString(); 
+				String^ returnDate = returnDatepicker->Value.ToShortDateString(); 
 				String^ insertQuery = "INSERT INTO Borrowings (BookID, Booktitle, UserId, author, BorrowedDate, ReturnDate) VALUES (@BookID, @Booktitle, @UserId, @author, @BorrowedDate, @ReturnDate)";
 				SqlCommand^ insertCommand = gcnew SqlCommand(insertQuery, sqlConn);
 				insertCommand->Parameters->AddWithValue("@BookID", bookID);
@@ -315,7 +312,7 @@ private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^
 				insertCommand->Parameters->AddWithValue("@author", Author);
 				insertCommand->ExecuteNonQuery();
 
-				// Close the database connection
+				
 				sqlConn->Close();
 
 				MessageBox::Show(String::Format("You have borrowed the book: {0} by {1}\nBorrowed Date: {2}\nReturn Date: {3}", bookTitle, bookAuthor, borrowedDate, returnDate), "Book Borrowed", MessageBoxButtons::OK, MessageBoxIcon::Information);

@@ -48,10 +48,34 @@
     <ClCompile Include="UpdatesPage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AllUsers1.cpp">
+    <ClCompile Include="Fpass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Fpass.cpp">
+    <ClCompile Include="AllU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteUseer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AvailableBooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddUser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RentedBooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminUser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Addp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddBooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReturnedBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,9 +107,6 @@
     <ClInclude Include="UpdatesPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AllUsers1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="book.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -96,6 +117,33 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Fpass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AllU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteUseer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AvailableBooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddUser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RentedBooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminUser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Addp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddBooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReturnedBook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

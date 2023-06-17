@@ -1,5 +1,11 @@
 #pragma once
-#include"AllUsers1.h"
+#include "AllU.h"
+#include "AdminUser.h"
+#include "RentedBooks.h"
+#include "AvailableBooks.h"
+#include "Addp.h"
+#include "AddBooks.h"
+#include "ReturnedBook.h"
 namespace LibraryMG {
 
 	using namespace System;
@@ -38,13 +44,13 @@ namespace LibraryMG {
 	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
+
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ button7;
 	private: System::Windows::Forms::Button^ button8;
-	private: System::Windows::Forms::Button^ button9;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
@@ -69,13 +75,11 @@ namespace LibraryMG {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
@@ -131,21 +135,7 @@ namespace LibraryMG {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Available books";
 			this->button2->UseVisualStyleBackColor = false;
-			// 
-			// button3
-			// 
-			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(72)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(239)));
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->ForeColor = System::Drawing::SystemColors::MenuBar;
-			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
-			this->button3->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button3->Location = System::Drawing::Point(329, 104);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(118, 58);
-			this->button3->TabIndex = 3;
-			this->button3->Text = L"Delete user";
-			this->button3->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &AdminPage::button2_Click);
 			// 
 			// button4
 			// 
@@ -161,6 +151,7 @@ namespace LibraryMG {
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"rented books";
 			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &AdminPage::button4_Click);
 			// 
 			// button5
 			// 
@@ -176,6 +167,7 @@ namespace LibraryMG {
 			this->button5->TabIndex = 5;
 			this->button5->Text = L"returned books";
 			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &AdminPage::button5_Click);
 			// 
 			// button6
 			// 
@@ -185,12 +177,13 @@ namespace LibraryMG {
 			this->button6->ForeColor = System::Drawing::SystemColors::MenuBar;
 			this->button6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.Image")));
 			this->button6->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button6->Location = System::Drawing::Point(475, 104);
+			this->button6->Location = System::Drawing::Point(329, 104);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(118, 58);
 			this->button6->TabIndex = 6;
 			this->button6->Text = L"Admin users";
 			this->button6->UseVisualStyleBackColor = false;
+			this->button6->Click += gcnew System::EventHandler(this, &AdminPage::button6_Click);
 			// 
 			// button7
 			// 
@@ -206,6 +199,7 @@ namespace LibraryMG {
 			this->button7->TabIndex = 7;
 			this->button7->Text = L"Add user";
 			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &AdminPage::button7_Click);
 			// 
 			// button8
 			// 
@@ -221,21 +215,7 @@ namespace LibraryMG {
 			this->button8->TabIndex = 8;
 			this->button8->Text = L"Add book";
 			this->button8->UseVisualStyleBackColor = false;
-			// 
-			// button9
-			// 
-			this->button9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(72)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(239)));
-			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button9->ForeColor = System::Drawing::SystemColors::MenuBar;
-			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
-			this->button9->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button9->Location = System::Drawing::Point(475, 271);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(118, 58);
-			this->button9->TabIndex = 9;
-			this->button9->Text = L"Block user";
-			this->button9->UseVisualStyleBackColor = false;
+			this->button8->Click += gcnew System::EventHandler(this, &AdminPage::button8_Click);
 			// 
 			// pictureBox1
 			// 
@@ -309,13 +289,11 @@ namespace LibraryMG {
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->button9);
 			this->Controls->Add(this->button8);
 			this->Controls->Add(this->button7);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
-			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
@@ -334,7 +312,34 @@ namespace LibraryMG {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		AllU^ ul = gcnew AllU();
+		ul->Show();
 	}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	AdminUser^ kl = gcnew AdminUser();
+	kl->Show();
+		
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	RentedBooks^ jjk = gcnew RentedBooks();
+	jjk->Show();
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	AvailableBooks^ avbook = gcnew AvailableBooks();
+	avbook->Show();
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	ReturnedBook^ rebook = gcnew ReturnedBook();
+	rebook->Show();
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	Addp^ pp = gcnew Addp();
+	pp->Show();
+}
+private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+	AddBooks^ adboook = gcnew AddBooks();
+	adboook ->Show();
+
+}
 };
 }

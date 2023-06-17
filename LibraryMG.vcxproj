@@ -120,28 +120,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddBooks.cpp" />
+    <ClCompile Include="Addp.cpp" />
+    <ClCompile Include="AddUser.cpp" />
     <ClCompile Include="AdminPage.cpp" />
-    <ClCompile Include="AllUsers1.cpp" />
+    <ClCompile Include="AdminUser.cpp" />
+    <ClCompile Include="AllU.cpp" />
+    <ClCompile Include="AvailableBooks.cpp" />
+    <ClCompile Include="DeleteUseer.cpp" />
     <ClCompile Include="ForgetForm1.cpp" />
     <ClCompile Include="Fpass.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="LibraryPage.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="RentedBooks.cpp" />
+    <ClCompile Include="ReturnedBook.cpp" />
     <ClCompile Include="ReturnPage.cpp" />
     <ClCompile Include="UpdatesPage.cpp" />
     <ClCompile Include="UserPage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddBooks.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Addp.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AddUser.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AdminPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="AllUsers1.h">
+    <ClInclude Include="AdminUser.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AllU.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AvailableBooks.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="book.h" />
     <ClInclude Include="borrowing.h" />
     <ClInclude Include="DB_CONN.h" />
+    <ClInclude Include="DeleteUseer.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Fpass.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -157,6 +183,12 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="RentedBooks.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ReturnedBook.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ReturnPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -169,11 +201,26 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddBooks.resx">
+      <DependentUpon>AddBooks.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Addp.resx">
+      <DependentUpon>Addp.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminPage.resx">
       <DependentUpon>AdminPage.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AllUsers1.resx">
-      <DependentUpon>AllUsers1.h</DependentUpon>
+    <EmbeddedResource Include="AdminUser.resx">
+      <DependentUpon>AdminUser.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllU.resx">
+      <DependentUpon>AllU.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AvailableBooks.resx">
+      <DependentUpon>AvailableBooks.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fpass.resx">
       <DependentUpon>Fpass.h</DependentUpon>
@@ -189,6 +236,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RentedBooks.resx">
+      <DependentUpon>RentedBooks.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnedBook.resx">
+      <DependentUpon>ReturnedBook.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnPage.resx">
       <DependentUpon>ReturnPage.h</DependentUpon>

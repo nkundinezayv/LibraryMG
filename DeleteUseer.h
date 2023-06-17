@@ -1,5 +1,4 @@
 #pragma once
-#include"AllUsers1.h"
 
 namespace LibraryMG {
 
@@ -9,15 +8,14 @@ namespace LibraryMG {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Data::SqlClient;
 
 	/// <summary>
-	/// Summary for AllUsers
+	/// Summary for DeleteUseer
 	/// </summary>
-	public ref class AllUsers : public System::Windows::Forms::Form
+	public ref class DeleteUseer : public System::Windows::Forms::Form
 	{
 	public:
-		AllUsers(void)
+		DeleteUseer(void)
 		{
 			InitializeComponent();
 			//
@@ -29,7 +27,7 @@ namespace LibraryMG {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~AllUsers()
+		~DeleteUseer()
 		{
 			if (components)
 			{
@@ -50,25 +48,12 @@ namespace LibraryMG {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->SuspendLayout();
-			// 
-			// AllUsers
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->components = gcnew System::ComponentModel::Container();
+			this->Size = System::Drawing::Size(300,300);
+			this->Text = L"DeleteUseer";
+			this->Padding = System::Windows::Forms::Padding(0);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
-			this->Name = L"AllUsers";
-			this->Text = L"AllUsers";
-			this->Load += gcnew System::EventHandler(this, &AllUsers::AllUsers_Load);
-			this->ResumeLayout(false);
-
 		}
-		
 #pragma endregion
-	private: System::Void AllUsers_Load(System::Object^ sender, System::EventArgs^ e) {
-		
-	}
-
-		   
 	};
 }

@@ -8,7 +8,7 @@
 #include "UserPage.h"
 #include "AdminPage.h"
 #include "LoginForm.h"
-#include "LoginForm.h"
+
 
 namespace LibraryMG {
 
@@ -68,7 +68,7 @@ namespace LibraryMG {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button2;
+
 
 	private: System::Windows::Forms::Button^ button6;
 
@@ -107,7 +107,6 @@ namespace LibraryMG {
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
@@ -133,7 +132,6 @@ namespace LibraryMG {
 			this->panel1->Controls->Add(this->button6);
 			this->panel1->Controls->Add(this->button4);
 			this->panel1->Controls->Add(this->button3);
-			this->panel1->Controls->Add(this->button2);
 			this->panel1->Controls->Add(this->button1);
 			this->panel1->Location = System::Drawing::Point(0, -1);
 			this->panel1->Name = L"panel1";
@@ -145,7 +143,7 @@ namespace LibraryMG {
 			this->button7->FlatAppearance->BorderSize = 0;
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.Image")));
-			this->button7->Location = System::Drawing::Point(0, 148);
+			this->button7->Location = System::Drawing::Point(0, 189);
 			this->button7->Margin = System::Windows::Forms::Padding(2);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(115, 38);
@@ -216,26 +214,12 @@ namespace LibraryMG {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MainForm::button3_Click);
 			// 
-			// button2
-			// 
-			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
-			this->button2->Location = System::Drawing::Point(0, 231);
-			this->button2->Margin = System::Windows::Forms::Padding(2);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(115, 38);
-			this->button2->TabIndex = 3;
-			this->button2->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MainForm::button2_Click);
-			// 
 			// button1
 			// 
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->Location = System::Drawing::Point(0, 190);
+			this->button1->Location = System::Drawing::Point(0, 231);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(115, 38);
@@ -385,7 +369,7 @@ private:
 	void DeselectAllButtons()
 	{
 		button1->BackColor = defaultColor;
-		button2->BackColor = defaultColor;
+		
 		button3->BackColor = defaultColor;
 		button4->BackColor = defaultColor;
 		button7->BackColor = defaultColor;
@@ -426,7 +410,7 @@ private:
 	void button2_Click(Object^ sender, EventArgs^ e)
 	{
 		DeselectAllButtons();
-		button2->BackColor = NEW;
+		
 		this->Invalidate();
 		panel5->Controls->Clear();
 		UserPage^ userPage;

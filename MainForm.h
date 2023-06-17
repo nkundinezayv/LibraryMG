@@ -8,6 +8,7 @@
 #include "UserPage.h"
 #include "AdminPage.h"
 #include "LoginForm.h"
+#include "LoginForm.h"
 
 namespace LibraryMG {
 
@@ -417,7 +418,7 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 	button1->BackColor = System::Drawing::Color::Blue;
 	panel5->Controls->Clear();
 	LibraryPage^ libraryPage;
-
+	
 	if (libraryPage == nullptr) {
 		libraryPage = gcnew LibraryPage();
 		libraryPage->TopLevel = false;
@@ -441,6 +442,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	button3->BackColor = System::Drawing::Color::Blue;
 	panel5->Controls->Clear();
 	ReturnPage^ returnPage;
+
 
 	if (returnPage == nullptr) {
 		returnPage = gcnew ReturnPage();

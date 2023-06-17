@@ -1,5 +1,7 @@
 #pragma once
 #include "DB_CONN.h"
+#include <ctime> 
+#include "user.h"
 namespace LibraryMG {
 
 	using namespace System;
@@ -16,14 +18,16 @@ namespace LibraryMG {
 	public ref class LibraryPage : public System::Windows::Forms::Form
 	{
 	public:
-		LibraryPage(void)
+		LibraryPage()
 		{
+			
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
+			
 		}
-
+		
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -153,7 +157,7 @@ namespace LibraryMG {
 			this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox4->Location = System::Drawing::Point(53, 444);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(630, 54);
+			this->pictureBox4->Size = System::Drawing::Size(630, 77);
 			this->pictureBox4->TabIndex = 8;
 			this->pictureBox4->TabStop = false;
 			// 
@@ -196,17 +200,14 @@ namespace LibraryMG {
 		sqlConn->Open();
 		String^ query = "SELECT * FROM Books";
 
-		// Create a SqlDataAdapter and DataTable
 		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(query, sqlConn);
 		DataTable^ dataTable = gcnew DataTable();
 
-		// Fetch the data from the database into the DataTable
 		dataAdapter->Fill(dataTable);
 
-		// Bind the DataTable to the dataGridView control
 		dataGridView->DataSource = dataTable;
 		dataGridView->ReadOnly = true;
-		// Close the database connection
+		
 		sqlConn->Close();
 	}
 	
@@ -216,33 +217,111 @@ namespace LibraryMG {
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		String^ searchText = textBox1->Text;
 
-		// Access the DataTable bound to the dataGridView
 		DataTable^ dataTable = safe_cast<DataTable^>(dataGridView->DataSource);
 
-		// Apply a filter to the DefaultView of the DataTable
 		if (dataTable->Columns->Contains("title") && dataTable->Columns->Contains("author")) {
-			// Apply a filter to the DefaultView of the DataTable
 			dataTable->DefaultView->RowFilter = String::Format("title LIKE '%{0}%' OR author LIKE '%{0}%'", searchText);
 		}
 	}
 private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^ e) {
-	// Check if any row is selected in the DataGridView
+
 	if (dataGridView->SelectedRows->Count > 0) {
-		// Get the selected row
+	
 		DataGridViewRow^ selectedRow = dataGridView->SelectedRows[0];
 
-		// Access the book information from the selected row
-		String^ bookTitle = selectedRow->Cells["Title"]->Value->ToString();
-		String^ bookAuthor = selectedRow->Cells["Author"]->Value->ToString();
+		String^ bookTitle = selectedRow->Cells["title"]->Value->ToString();
+		String^ bookAuthor = selectedRow->Cells["author"]->Value->ToString();
 
-		// Perform the borrowing logic here
-		// ...
 
-		// Show a message to indicate successful borrowing
-		MessageBox::Show(String::Format("You have borrowed the book: {0} by {1}", bookTitle, bookAuthor), "Book Borrowed", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		time_t currentTime = time(nullptr);
+		tm* localTime = localtime(&currentTime);
+		int year = localTime->tm_year + 1900;
+		int month = localTime->tm_mon + 1;
+		int day = localTime->tm_mday;
+
+		
+		String^ borrowedDate = String::Format("{0}-{1:00}-{2:00}", year, month, day);
+
+		
+		Form^ dateForm = gcnew Form();
+		dateForm->Text = "Choose Return Date";
+		dateForm->StartPosition = FormStartPosition::CenterScreen;
+		dateForm->MinimizeBox = false;
+		dateForm->MaximizeBox = false;
+
+	
+		DateTimePicker^ returnDatepicker = gcnew DateTimePicker();
+		returnDatepicker->Format = DateTimePickerFormat::Short;
+		returnDatepicker->MinDate = DateTime::Today; 
+		returnDatepicker->Width = 100;
+		returnDatepicker->Height = 30;
+		returnDatepicker->Anchor = AnchorStyles::None;
+		returnDatepicker->Dock = DockStyle::Fill;
+
+	
+		Button^ okButton = gcnew Button();
+		okButton->Text = "OK";
+		okButton->Width = 75;
+		okButton->Height = 30;
+		okButton->Anchor = AnchorStyles::None;
+		okButton->Dock = DockStyle::Bottom;
+		okButton->DialogResult = System::Windows::Forms::DialogResult::OK;
+
+	
+		dateForm->Controls->Add(returnDatepicker);
+		dateForm->Controls->Add(okButton);
+
+	
+		if (dateForm->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			int noBooksav = Convert::ToInt32(selectedRow->Cells["noBooksav"]->Value);
+			int Id = Convert::ToInt32(selectedRow->Cells["Id"]->Value);
+			int bookID = Convert::ToInt32(selectedRow->Cells["Id"]->Value);
+			String^ bookTitle = selectedRow->Cells["title"]->Value->ToString();
+
+			if (noBooksav >= 1) {
+				// Decrement the number of available books
+				noBooksav--;
+
+				// Update the SQL database with the new value
+				String^ updateQuery = String::Format("UPDATE Books SET noBooksav = {0} WHERE Id = {1}", noBooksav, Id);
+				SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
+				sqlConn->Open();
+
+				// Execute the update query
+				SqlCommand^ updateCommand = gcnew SqlCommand(updateQuery, sqlConn);
+				updateCommand->ExecuteNonQuery();
+
+				// Perform the borrowing logic here
+				//DateTime returnDate = returnDatepicker->Value; // Assuming you have already retrieved the return date
+
+				// Insert a new row into the "Borrowings" table
+				String^ borrowedDate = DateTime::Today.ToShortDateString(); // Get the current date as the borrowed date
+				String^ returnDate = returnDatepicker->Value.ToShortDateString(); // Get the chosen return date
+				String^ insertQuery = "INSERT INTO Borrowings (BookID, Bootitle, BorrowedDate, ReturnDate) VALUES (@BookID, @Bootitle, @BorrowedDate, @ReturnDate)";
+				SqlCommand^ insertCommand = gcnew SqlCommand(insertQuery, sqlConn);
+				insertCommand->Parameters->AddWithValue("@BookID", bookID);
+				insertCommand->Parameters->AddWithValue("@Bootitle", bookTitle);
+				insertCommand->Parameters->AddWithValue("@BorrowedDate", borrowedDate);
+				insertCommand->Parameters->AddWithValue("@ReturnDate", returnDate);
+				insertCommand->ExecuteNonQuery();
+
+				// Close the database connection
+				sqlConn->Close();
+
+				MessageBox::Show(String::Format("You have borrowed the book: {0} by {1}\nBorrowed Date: {2}\nReturn Date: {3}", bookTitle, bookAuthor, borrowedDate, returnDate), "Book Borrowed", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			else {
+				MessageBox::Show(String::Format("The book '{0}' is not available", bookTitle), "Book Not Available", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+
+			
+		}
+
+		
+		dateForm->Close();
 	}
 	else {
-		// No row is selected, show an error message
+	
 		MessageBox::Show("Please select a book to borrow", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }

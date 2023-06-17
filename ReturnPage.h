@@ -15,8 +15,10 @@ namespace LibraryMG {
 	public ref class ReturnPage : public System::Windows::Forms::Form
 	{
 	public:
-		ReturnPage(void)
+		ReturnPage()
 		{
+
+			
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -34,7 +36,17 @@ namespace LibraryMG {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::CheckBox^ checkBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	protected:
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ btnBorrow;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::DataGridView^ dataGridView;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+
 	protected:
 
 	private:
@@ -50,33 +62,138 @@ namespace LibraryMG {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ReturnPage::typeid));
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->btnBorrow = (gcnew System::Windows::Forms::Button());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->dataGridView = (gcnew System::Windows::Forms::DataGridView());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// checkBox1
+			// pictureBox4
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(150, 133);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(80, 17);
-			this->checkBox1->TabIndex = 0;
-			this->checkBox1->Text = L"checkBox1";
-			this->checkBox1->UseVisualStyleBackColor = true;
+			this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
+			this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox4->Location = System::Drawing::Point(43, 448);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(630, 77);
+			this->pictureBox4->TabIndex = 16;
+			this->pictureBox4->TabStop = false;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
+			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox3->Location = System::Drawing::Point(84, 405);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(38, 37);
+			this->pictureBox3->TabIndex = 15;
+			this->pictureBox3->TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox2->Location = System::Drawing::Point(84, 43);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(24, 24);
+			this->pictureBox2->TabIndex = 14;
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Location = System::Drawing::Point(353, 12);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(43, 33);
+			this->pictureBox1->TabIndex = 13;
+			this->pictureBox1->TabStop = false;
+			// 
+			// btnBorrow
+			// 
+			this->btnBorrow->Location = System::Drawing::Point(128, 419);
+			this->btnBorrow->Name = L"btnBorrow";
+			this->btnBorrow->Size = System::Drawing::Size(75, 23);
+			this->btnBorrow->TabIndex = 12;
+			this->btnBorrow->Text = L"return";
+			this->btnBorrow->UseVisualStyleBackColor = true;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(288, 22);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(59, 13);
+			this->label2->TabIndex = 11;
+			this->label2->Text = L"your books";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(114, 44);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(127, 20);
+			this->textBox1->TabIndex = 10;
+			// 
+			// dataGridView
+			// 
+			this->dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView->Location = System::Drawing::Point(70, 70);
+			this->dataGridView->Name = L"dataGridView";
+			this->dataGridView->Size = System::Drawing::Size(542, 329);
+			this->dataGridView->TabIndex = 9;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.BackgroundImage")));
+			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox5->Location = System::Drawing::Point(12, 12);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(35, 32);
+			this->pictureBox5->TabIndex = 17;
+			this->pictureBox5->TabStop = false;
 			// 
 			// ReturnPage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::MenuBar;
-			this->ClientSize = System::Drawing::Size(721, 446);
-			this->Controls->Add(this->checkBox1);
+			this->ClientSize = System::Drawing::Size(721, 537);
+			this->Controls->Add(this->pictureBox5);
+			this->Controls->Add(this->pictureBox4);
+			this->Controls->Add(this->pictureBox3);
+			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->btnBorrow);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->dataGridView);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"ReturnPage";
 			this->Text = L"ReturnPage";
+			this->Load += gcnew System::EventHandler(this, &ReturnPage::ReturnPage_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void ReturnPage_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

@@ -131,6 +131,9 @@ namespace LibraryMG {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->Login_panel = (gcnew System::Windows::Forms::Panel());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label15 = (gcnew System::Windows::Forms::Label());
@@ -145,10 +148,9 @@ namespace LibraryMG {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
@@ -168,12 +170,10 @@ namespace LibraryMG {
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
-			this->Login_panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->Login_panel->SuspendLayout();
 			this->panel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -188,6 +188,39 @@ namespace LibraryMG {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(398, 513);
 			this->panel1->TabIndex = 0;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Rockwell", 12.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label10->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->label10->Location = System::Drawing::Point(111, 41);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(135, 22);
+			this->label10->TabIndex = 2;
+			this->label10->Text = L"YVES_LIBRARY";
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->Location = System::Drawing::Point(345, 15);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(22, 22);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 1;
+			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &LoginForm::pictureBox2_Click);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Location = System::Drawing::Point(24, 107);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(324, 316);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
 			// 
 			// Login_panel
 			// 
@@ -340,27 +373,6 @@ namespace LibraryMG {
 			this->label1->Text = L"Login";
 			this->label1->Click += gcnew System::EventHandler(this, &LoginForm::label1_Click_1);
 			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(345, 15);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(22, 22);
-			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox2->TabIndex = 1;
-			this->pictureBox2->TabStop = false;
-			this->pictureBox2->Click += gcnew System::EventHandler(this, &LoginForm::pictureBox2_Click);
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
-			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox1->Location = System::Drawing::Point(24, 107);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(324, 316);
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
-			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
@@ -398,6 +410,15 @@ namespace LibraryMG {
 			this->panel3->Size = System::Drawing::Size(311, 321);
 			this->panel3->TabIndex = 11;
 			this->panel3->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &LoginForm::panel3_Paint_1);
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(72, 208);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(72, 13);
+			this->label17->TabIndex = 20;
+			this->label17->Text = L"hint password";
 			// 
 			// panel2
 			// 
@@ -565,27 +586,6 @@ namespace LibraryMG {
 			this->panel4->Size = System::Drawing::Size(318, 127);
 			this->panel4->TabIndex = 12;
 			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Rockwell", 12.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label10->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label10->Location = System::Drawing::Point(111, 41);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(135, 22);
-			this->label10->TabIndex = 2;
-			this->label10->Text = L"YVES_LIBRARY";
-			// 
-			// label17
-			// 
-			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(72, 208);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(72, 13);
-			this->label17->TabIndex = 20;
-			this->label17->Text = L"hint password";
-			// 
 			// LoginForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -597,15 +597,16 @@ namespace LibraryMG {
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"LoginForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"LoginForm";
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			this->Login_panel->ResumeLayout(false);
-			this->Login_panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->Login_panel->ResumeLayout(false);
+			this->Login_panel->PerformLayout();
 			this->panel3->ResumeLayout(false);
 			this->panel3->PerformLayout();
 			this->ResumeLayout(false);

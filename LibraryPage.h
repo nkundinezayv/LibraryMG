@@ -180,6 +180,7 @@ namespace LibraryMG {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->dataGridView);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"LibraryPage";
 			this->Text = L"LibraryPage";
 			this->Load += gcnew System::EventHandler(this, &LibraryPage::LibraryPage_Load);

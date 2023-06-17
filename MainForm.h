@@ -313,6 +313,7 @@ namespace LibraryMG {
 			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MainForm";
@@ -360,6 +361,7 @@ private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void panel5_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	
 }
 
 private:

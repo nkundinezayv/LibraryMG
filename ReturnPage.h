@@ -161,6 +161,7 @@ namespace LibraryMG {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->dataGridView);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"ReturnPage";
 			this->Text = L"ReturnPage";
 			this->Load += gcnew System::EventHandler(this, &ReturnPage::ReturnPage_Load);

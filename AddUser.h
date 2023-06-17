@@ -48,6 +48,7 @@ namespace LibraryMG {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AddUser::typeid));
 			this->SuspendLayout();
 			// 
 			// AddUser
@@ -55,6 +56,7 @@ namespace LibraryMG {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(489, 261);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"AddUser";
 			this->Text = L"AddUser";
 			this->ResumeLayout(false);

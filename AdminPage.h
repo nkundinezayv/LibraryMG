@@ -334,9 +334,7 @@ namespace LibraryMG {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		AllUsers^ loginForm = gcnew AllUsers();
-		 //Show the login form
-		loginForm->Show();
+		
 	}
 };
 }

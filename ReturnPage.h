@@ -41,11 +41,11 @@ namespace LibraryMG {
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	protected:
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ btnBorrow;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 	private: System::Windows::Forms::DataGridView^ dataGridView;
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 
@@ -67,16 +67,13 @@ namespace LibraryMG {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ReturnPage::typeid));
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnBorrow = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView = (gcnew System::Windows::Forms::DataGridView());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
@@ -101,16 +98,6 @@ namespace LibraryMG {
 			this->pictureBox3->Size = System::Drawing::Size(38, 37);
 			this->pictureBox3->TabIndex = 15;
 			this->pictureBox3->TabStop = false;
-			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
-			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox2->Location = System::Drawing::Point(84, 43);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(24, 24);
-			this->pictureBox2->TabIndex = 14;
-			this->pictureBox2->TabStop = false;
 			// 
 			// pictureBox1
 			// 
@@ -141,13 +128,6 @@ namespace LibraryMG {
 			this->label2->TabIndex = 11;
 			this->label2->Text = L"your books";
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(114, 44);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(127, 20);
-			this->textBox1->TabIndex = 10;
-			// 
 			// dataGridView
 			// 
 			this->dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -176,11 +156,9 @@ namespace LibraryMG {
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->pictureBox4);
 			this->Controls->Add(this->pictureBox3);
-			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btnBorrow);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->dataGridView);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"ReturnPage";
@@ -188,7 +166,6 @@ namespace LibraryMG {
 			this->Load += gcnew System::EventHandler(this, &ReturnPage::ReturnPage_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();

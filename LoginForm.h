@@ -1,9 +1,9 @@
 #pragma once
 #include "user.h"
 #include"MainForm.h"
-#include<stdlib.h>;
-#include "ForgetForm.h"
+#include "Fpass.h"
 #include "DB_CONN.h"
+
 namespace LibraryMG {
 
 	using namespace System;
@@ -637,8 +637,8 @@ private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e)
 
 public:  bool isForgotOPEN = false;
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
-	//ForgetForm^ obj;
-	//obj->Show();
+	Fpass^ fpass = gcnew Fpass();
+	fpass->Show();
 }
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();

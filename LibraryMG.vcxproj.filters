@@ -27,7 +27,7 @@
     <ClCompile Include="MainForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ForgetForm.cpp">
+    <ClCompile Include="ForgetForm1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HomePage.cpp">
@@ -51,15 +51,15 @@
     <ClCompile Include="AllUsers1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fpass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ForgetForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="user.h">
@@ -93,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DB_CONN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fpass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

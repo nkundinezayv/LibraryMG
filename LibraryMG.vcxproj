@@ -122,7 +122,8 @@
   <ItemGroup>
     <ClCompile Include="AdminPage.cpp" />
     <ClCompile Include="AllUsers1.cpp" />
-    <ClCompile Include="ForgetForm.cpp" />
+    <ClCompile Include="ForgetForm1.cpp" />
+    <ClCompile Include="Fpass.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="LibraryPage.cpp" />
     <ClCompile Include="LoginForm.cpp" />
@@ -141,7 +142,7 @@
     <ClInclude Include="book.h" />
     <ClInclude Include="borrowing.h" />
     <ClInclude Include="DB_CONN.h" />
-    <ClInclude Include="ForgetForm.h">
+    <ClInclude Include="Fpass.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="HomePage.h">
@@ -174,8 +175,8 @@
     <EmbeddedResource Include="AllUsers1.resx">
       <DependentUpon>AllUsers1.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ForgetForm.resx">
-      <DependentUpon>ForgetForm.h</DependentUpon>
+    <EmbeddedResource Include="Fpass.resx">
+      <DependentUpon>Fpass.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.h</DependentUpon>

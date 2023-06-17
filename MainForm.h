@@ -367,18 +367,7 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("You chose No", "Log out", MessageBoxButtons::OK);
 	}
 }
-private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-	panel5->Controls->Clear();
-	AdminPage^ adminPage;
-	
-	//Button1->BackColor = System::Drawing::SystemColors::Control;
-	if (adminPage == nullptr) {
-		adminPage = gcnew AdminPage();
-		adminPage->TopLevel = false;
-	}
-	panel5->Controls->Add(adminPage);
-	adminPage->Show();
-}
+
 private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -389,56 +378,99 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 private: System::Void panel5_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 
-private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	button1->BackColor = System::Drawing::Color::Blue;
-	panel5->Controls->Clear();
-	LibraryPage^ libraryPage = nullptr;
-	
+private:
+	Color defaultColor = Color::FromArgb(72, 149, 239);
+	Color NEW = Color::FromArgb(3, 83, 164);
 
-	if (libraryPage == nullptr) {
-		
-		libraryPage = gcnew LibraryPage(id);
-		libraryPage->TopLevel = false;
+	void DeselectAllButtons()
+	{
+		button1->BackColor = defaultColor;
+		button2->BackColor = defaultColor;
+		button3->BackColor = defaultColor;
+		button4->BackColor = defaultColor;
+		button7->BackColor = defaultColor;
+		this->Invalidate(); 
 	}
-	panel5->Controls->Add(libraryPage);
-	libraryPage->Show();
-}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	button2->BackColor = System::Drawing::Color::Blue;
-	panel5->Controls->Clear();
-	UserPage^ userPage;
 
-	if (userPage == nullptr) {
-		userPage = gcnew UserPage();
-		userPage->TopLevel = false;
+	void button1_Click_1(Object^ sender, EventArgs^ e)
+	{
+		DeselectAllButtons();
+		button1->BackColor = NEW;
+		this->Invalidate(); 
+		panel5->Controls->Clear();
+		LibraryPage^ libraryPage = nullptr;
+
+		if (libraryPage == nullptr) {
+			libraryPage = gcnew LibraryPage(id);
+			libraryPage->TopLevel = false;
+		}
+		panel5->Controls->Add(libraryPage);
+		libraryPage->Show();
 	}
-	panel5->Controls->Add(userPage);
-	userPage->Show();
-}
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	button3->BackColor = System::Drawing::Color::Blue;
-	panel5->Controls->Clear();
-	ReturnPage^ returnPage;
 
+	Void button7_Click(Object^ sender, EventArgs^ e) {
+		DeselectAllButtons();
+		button7->BackColor = NEW;
+		this->Invalidate(); 
+		panel5->Controls->Clear();
+		AdminPage^ adminPage;
 
-	if (returnPage == nullptr) {
-		returnPage = gcnew ReturnPage(id);
-		returnPage->TopLevel = false;
+		if (adminPage == nullptr) {
+			adminPage = gcnew AdminPage();
+			adminPage->TopLevel = false;
+		}
+		panel5->Controls->Add(adminPage);
+		adminPage->Show();
 	}
-	panel5->Controls->Add(returnPage);
-	returnPage->Show();
-}
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	button4->BackColor = System::Drawing::Color::Blue;
-	panel5->Controls->Clear();
-	UpdatesPage^ updatesPage;
 
-	if (updatesPage == nullptr) {
-		updatesPage = gcnew UpdatesPage(id);
-		updatesPage->TopLevel = false;
+	void button2_Click(Object^ sender, EventArgs^ e)
+	{
+		DeselectAllButtons();
+		button2->BackColor = NEW;
+		this->Invalidate();
+		panel5->Controls->Clear();
+		UserPage^ userPage;
+
+		if (userPage == nullptr) {
+			userPage = gcnew UserPage();
+			userPage->TopLevel = false;
+		}
+		panel5->Controls->Add(userPage);
+		userPage->Show();
 	}
-	panel5->Controls->Add(updatesPage);
-	updatesPage->Show();
-}
+
+	void button3_Click(Object^ sender, EventArgs^ e)
+	{
+		DeselectAllButtons();
+		button3->BackColor = NEW;
+		this->Invalidate(); 
+		panel5->Controls->Clear();
+		ReturnPage^ returnPage;
+
+		if (returnPage == nullptr) {
+			returnPage = gcnew ReturnPage(id);
+			returnPage->TopLevel = false;
+		}
+		panel5->Controls->Add(returnPage);
+		returnPage->Show();
+	}
+
+	void button4_Click(Object^ sender, EventArgs^ e)
+	{
+		DeselectAllButtons();
+		button4->BackColor = NEW;
+		this->Invalidate(); 
+		panel5->Controls->Clear();
+		UpdatesPage^ updatesPage;
+
+		if (updatesPage == nullptr) {
+			updatesPage = gcnew UpdatesPage(id);
+			updatesPage->TopLevel = false;
+		}
+		panel5->Controls->Add(updatesPage);
+		updatesPage->Show();
+	}
+
+
 };
 }

@@ -1,5 +1,9 @@
 #include "LoginForm.h"
 #include "MainForm.h"
+#include "LibraryPage.h"
+using namespace LibraryMG;
+
+
 
 using namespace System;
 using namespace std;
@@ -20,8 +24,10 @@ int main()
     User^ user = loginForm.user;
 
     if (user != nullptr) {
+   
         LibraryMG::MainForm mainForm(user);
         Application::Run(%mainForm);
+       
     }
     else {
 

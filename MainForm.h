@@ -24,14 +24,16 @@ namespace LibraryMG {
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
+		int id;
 	public:
 		MainForm(User ^user)
 		{
+			user = user;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
-
+			id = user->id;
 			if (user->isAdmin == "true") {
 				button7->Show();
 				label1->Text = "Admin";
@@ -69,7 +71,7 @@ namespace LibraryMG {
 	private: System::Windows::Forms::Button^ button2;
 
 	private: System::Windows::Forms::Button^ button6;
-	private: System::Windows::Forms::Button^ button5;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Panel^ panel4;
@@ -103,7 +105,6 @@ namespace LibraryMG {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -130,7 +131,6 @@ namespace LibraryMG {
 			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Controls->Add(this->pictureBox2);
 			this->panel1->Controls->Add(this->button6);
-			this->panel1->Controls->Add(this->button5);
 			this->panel1->Controls->Add(this->button4);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->button2);
@@ -145,7 +145,7 @@ namespace LibraryMG {
 			this->button7->FlatAppearance->BorderSize = 0;
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.Image")));
-			this->button7->Location = System::Drawing::Point(0, 107);
+			this->button7->Location = System::Drawing::Point(0, 148);
 			this->button7->Margin = System::Windows::Forms::Padding(2);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(115, 38);
@@ -187,20 +187,6 @@ namespace LibraryMG {
 			this->button6->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &MainForm::button6_Click);
-			// 
-			// button5
-			// 
-			this->button5->FlatAppearance->BorderSize = 0;
-			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
-			this->button5->Location = System::Drawing::Point(0, 148);
-			this->button5->Margin = System::Windows::Forms::Padding(2);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(115, 38);
-			this->button5->TabIndex = 6;
-			this->button5->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &MainForm::button5_Click);
 			// 
 			// button4
 			// 
@@ -384,7 +370,7 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 	panel5->Controls->Clear();
 	AdminPage^ adminPage;
-	button5->BackColor = System::Drawing::Color::Blue;
+	
 	//Button1->BackColor = System::Drawing::SystemColors::Control;
 	if (adminPage == nullptr) {
 		adminPage = gcnew AdminPage();
@@ -402,25 +388,16 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void panel5_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
-private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-	panel5->Controls->Clear();
-	HomePage^ homePage;
-	button5->BackColor = System::Drawing::Color::Blue;
-	//Button1->BackColor = System::Drawing::SystemColors::Control;
-	if (homePage == nullptr) {
-		homePage = gcnew HomePage();
-		homePage->TopLevel = false;  
-	}
-	panel5->Controls->Add(homePage);
-	homePage->Show();
-}
+
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	button1->BackColor = System::Drawing::Color::Blue;
 	panel5->Controls->Clear();
-	LibraryPage^ libraryPage;
+	LibraryPage^ libraryPage = nullptr;
 	
+
 	if (libraryPage == nullptr) {
-		libraryPage = gcnew LibraryPage();
+		
+		libraryPage = gcnew LibraryPage(id);
 		libraryPage->TopLevel = false;
 	}
 	panel5->Controls->Add(libraryPage);
@@ -445,7 +422,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 
 	if (returnPage == nullptr) {
-		returnPage = gcnew ReturnPage();
+		returnPage = gcnew ReturnPage(id);
 		returnPage->TopLevel = false;
 	}
 	panel5->Controls->Add(returnPage);
@@ -457,7 +434,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	UpdatesPage^ updatesPage;
 
 	if (updatesPage == nullptr) {
-		updatesPage = gcnew UpdatesPage();
+		updatesPage = gcnew UpdatesPage(id);
 		updatesPage->TopLevel = false;
 	}
 	panel5->Controls->Add(updatesPage);

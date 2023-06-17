@@ -18,10 +18,14 @@ namespace LibraryMG {
 	public ref class LibraryPage : public System::Windows::Forms::Form
 	{
 	public:
-		LibraryPage()
+		int userId;
+	public:
+		LibraryPage(int id)
 		{
 			
+			 userId = id;
 			InitializeComponent();
+			
 			//
 			//TODO: Add the constructor code here
 			//
@@ -277,32 +281,37 @@ private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^
 			int Id = Convert::ToInt32(selectedRow->Cells["Id"]->Value);
 			int bookID = Convert::ToInt32(selectedRow->Cells["Id"]->Value);
 			String^ bookTitle = selectedRow->Cells["title"]->Value->ToString();
-
+			String^ Author = selectedRow->Cells["author"]->Value->ToString();
+			
 			if (noBooksav >= 1) {
 				// Decrement the number of available books
 				noBooksav--;
 
-				// Update the SQL database with the new value
+				
 				String^ updateQuery = String::Format("UPDATE Books SET noBooksav = {0} WHERE Id = {1}", noBooksav, Id);
 				SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
 				sqlConn->Open();
 
-				// Execute the update query
+			
 				SqlCommand^ updateCommand = gcnew SqlCommand(updateQuery, sqlConn);
 				updateCommand->ExecuteNonQuery();
-
+				
+				
+				
 				// Perform the borrowing logic here
 				//DateTime returnDate = returnDatepicker->Value; // Assuming you have already retrieved the return date
 
 				// Insert a new row into the "Borrowings" table
 				String^ borrowedDate = DateTime::Today.ToShortDateString(); // Get the current date as the borrowed date
 				String^ returnDate = returnDatepicker->Value.ToShortDateString(); // Get the chosen return date
-				String^ insertQuery = "INSERT INTO Borrowings (BookID, Bootitle, BorrowedDate, ReturnDate) VALUES (@BookID, @Bootitle, @BorrowedDate, @ReturnDate)";
+				String^ insertQuery = "INSERT INTO Borrowings (BookID, Booktitle, UserId, author, BorrowedDate, ReturnDate) VALUES (@BookID, @Booktitle, @UserId, @author, @BorrowedDate, @ReturnDate)";
 				SqlCommand^ insertCommand = gcnew SqlCommand(insertQuery, sqlConn);
 				insertCommand->Parameters->AddWithValue("@BookID", bookID);
-				insertCommand->Parameters->AddWithValue("@Bootitle", bookTitle);
+				insertCommand->Parameters->AddWithValue("@UserId", userId);
+				insertCommand->Parameters->AddWithValue("@Booktitle", bookTitle);
 				insertCommand->Parameters->AddWithValue("@BorrowedDate", borrowedDate);
 				insertCommand->Parameters->AddWithValue("@ReturnDate", returnDate);
+				insertCommand->Parameters->AddWithValue("@author", Author);
 				insertCommand->ExecuteNonQuery();
 
 				// Close the database connection

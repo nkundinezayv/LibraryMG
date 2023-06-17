@@ -1,5 +1,6 @@
 #pragma once
-
+#include "user.h"
+#include "DB_CONN.h"
 namespace LibraryMG {
 
 	using namespace System;
@@ -8,16 +9,17 @@ namespace LibraryMG {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Data::SqlClient;
 	/// <summary>
 	/// Summary for ReturnPage
 	/// </summary>
 	public ref class ReturnPage : public System::Windows::Forms::Form
 	{
 	public:
-		ReturnPage()
+		int userid;
+		ReturnPage(int id)
 		{
-
+			userid = id;
 			
 			InitializeComponent();
 			//
@@ -128,6 +130,7 @@ namespace LibraryMG {
 			this->btnBorrow->TabIndex = 12;
 			this->btnBorrow->Text = L"return";
 			this->btnBorrow->UseVisualStyleBackColor = true;
+			this->btnBorrow->Click += gcnew System::EventHandler(this, &ReturnPage::btnBorrow_Click);
 			// 
 			// label2
 			// 
@@ -148,10 +151,11 @@ namespace LibraryMG {
 			// dataGridView
 			// 
 			this->dataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView->Location = System::Drawing::Point(70, 70);
+			this->dataGridView->Location = System::Drawing::Point(46, 73);
 			this->dataGridView->Name = L"dataGridView";
-			this->dataGridView->Size = System::Drawing::Size(542, 329);
+			this->dataGridView->Size = System::Drawing::Size(627, 329);
 			this->dataGridView->TabIndex = 9;
+			this->dataGridView->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ReturnPage::dataGridView_CellContentClick);
 			// 
 			// pictureBox5
 			// 
@@ -194,6 +198,85 @@ namespace LibraryMG {
 		}
 #pragma endregion
 	private: System::Void ReturnPage_Load(System::Object^ sender, System::EventArgs^ e) {
+		SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
+		sqlConn->Open();
+		String^ query = String::Format("SELECT * FROM Borrowings WHERE UserID = {0}", userid);
+
+		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(query, sqlConn);
+		DataTable^ dataTable = gcnew DataTable();
+
+		dataAdapter->Fill(dataTable);
+
+		dataGridView->DataSource = dataTable;
+		dataGridView->ReadOnly = true;
+
+		sqlConn->Close();
 	}
+private: System::Void dataGridView_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void btnBorrow_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dataGridView->SelectedRows->Count > 0) {
+		if (dataGridView->SelectedRows->Count > 0) {
+			DataGridViewRow^ selectedRow = dataGridView->SelectedRows[0];
+
+			// Retrieve book information from the selected row
+			int bookID = Convert::ToInt32(selectedRow->Cells["Id"]->Value);
+			String^ bookTitle = selectedRow->Cells["Booktitle"]->Value->ToString();
+			String^ bookAuthor = selectedRow->Cells["author"]->Value->ToString();
+
+			// Get the current date as the return date
+			String^ returnDate = DateTime::Today.ToShortDateString();
+
+			// Insert a new row into the "returnBook" table
+			String^ insertQuery = "INSERT INTO returnBook (BookID, BookTitle, UserId, BookAuthor, ReturnDate) VALUES (@BookID, @BookTitle, @UserId, @BookAuthor, @ReturnDate)";
+			SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
+			sqlConn->Open();
+
+			SqlCommand^ insertCommand = gcnew SqlCommand(insertQuery, sqlConn);
+			insertCommand->Parameters->AddWithValue("@BookID", bookID);
+			insertCommand->Parameters->AddWithValue("@BookTitle", bookTitle);
+			insertCommand->Parameters->AddWithValue("@BookAuthor", bookAuthor);
+			insertCommand->Parameters->AddWithValue("@ReturnDate", returnDate);
+			insertCommand->Parameters->AddWithValue("@UserId", userid);
+			insertCommand->ExecuteNonQuery();
+
+			// Get the current noBooksav value from the Books table
+			String^ getNoBooksavQuery = String::Format("SELECT noBooksav FROM Books WHERE Id = {0}", bookID);
+			SqlCommand^ getNoBooksavCommand = gcnew SqlCommand(getNoBooksavQuery, sqlConn);
+			int noBooksav = Convert::ToInt32(getNoBooksavCommand->ExecuteScalar());
+
+			// Increment the noBooksav value
+			noBooksav++;
+
+			// Update the Books table with the incremented value
+			String^ updateQuery = String::Format("UPDATE Books SET noBooksav = {0} WHERE Id = {1}", noBooksav, bookID);
+			SqlCommand^ updateCommand = gcnew SqlCommand(updateQuery, sqlConn);
+			updateCommand->ExecuteNonQuery();
+
+
+			// Delete the book from the Borrowings table
+			String^ deleteQuery = "DELETE FROM Borrowings WHERE BookID = @BookID AND UserId = @UserId";
+			;
+
+			SqlCommand^ deleteCommand = gcnew SqlCommand(deleteQuery, sqlConn);
+			deleteCommand->Parameters->AddWithValue("@BookID", bookID);
+			deleteCommand->Parameters->AddWithValue("@UserId", userid);
+			deleteCommand->ExecuteNonQuery();
+
+			// Close the database connection
+			sqlConn->Close();
+
+			MessageBox::Show(String::Format("You have returned the book: {0} by {1}\nReturn Date: {2}", bookTitle, bookAuthor, returnDate), "Book Returned", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		else {
+			MessageBox::Show("Please select a book to return", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+
+		}
+	else {
+		MessageBox::Show("Please select a book to return", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+
+}
 };
 }

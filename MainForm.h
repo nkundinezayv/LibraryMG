@@ -358,6 +358,19 @@ private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e)
 }
 
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	DeselectAllButtons();
+	button1->BackColor = NEW;
+	this->Invalidate();
+	panel5->Controls->Clear();
+	LibraryPage^ libraryPage = nullptr;
+
+	if (libraryPage == nullptr) {
+		libraryPage = gcnew LibraryPage(id);
+		libraryPage->TopLevel = false;
+	}
+	panel5->Controls->Add(libraryPage);
+	libraryPage->Show();
+
 }
 private: System::Void panel5_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	

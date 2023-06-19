@@ -1,5 +1,6 @@
 #pragma once
 #include "DB_CONN.h"
+#include"borrowing.h"
 namespace LibraryMG {
 	using namespace System::Data::SqlClient;
 	using namespace System;

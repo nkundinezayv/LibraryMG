@@ -1,5 +1,6 @@
 #pragma once
 #include "DB_CONN.h"
+#include"borrowing.h"
 namespace LibraryMG {
 	using namespace System::Data::SqlClient;
 	using namespace System;
@@ -81,26 +82,21 @@ namespace LibraryMG {
 		}
 #pragma endregion
 	private: System::Void RentedBooks_Load(System::Object^ sender, System::EventArgs^ e) {
-		SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
-		sqlConn->Open();
+		Borrow^ borrow = gcnew Borrow();
+		borrow->RentedBook();
 
-		String^ query = "SELECT * FROM Borrowings";
-		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(query, sqlConn);
-		DataTable^ dataTable = gcnew DataTable();
-
-		dataAdapter->Fill(dataTable);
-
-		dataGridView1->DataSource = dataTable;
-		dataGridView1->ReadOnly = true;
+		dataGridView1->DataSource = borrow->dataTable;
 
 		for (int i = 0; i < dataGridView1->Columns->Count; i++) {
 			dataGridView1->Columns[i]->AutoSizeMode = DataGridViewAutoSizeColumnMode::AllCells;
 		}
 
+		dataGridView1->DataSource = borrow->dataTable;
+		dataGridView1->ReadOnly = true;
 
-		
-
-		sqlConn->Close();
+		for (int i = 0; i < dataGridView1->Columns->Count; i++) {
+			dataGridView1->Columns[i]->AutoSizeMode = DataGridViewAutoSizeColumnMode::AllCells;
+		}
 
 	}
 	};

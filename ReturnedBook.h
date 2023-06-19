@@ -81,16 +81,16 @@ namespace LibraryMG {
 		}
 #pragma endregion
 	private: System::Void ReturnedBook_Load(System::Object^ sender, System::EventArgs^ e) {
-		SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
-		sqlConn->Open();
+		Borrow^ borrow = gcnew Borrow();
+		borrow->ReturnedBook();
 
-		String^ query = "SELECT * FROM returnBook";
-		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(query, sqlConn);
-		DataTable^ dataTable = gcnew DataTable();
+		dataGridView1->DataSource = borrow->dataTable;
 
-		dataAdapter->Fill(dataTable);
+		for (int i = 0; i < dataGridView1->Columns->Count; i++) {
+			dataGridView1->Columns[i]->AutoSizeMode = DataGridViewAutoSizeColumnMode::AllCells;
+		}
 
-		dataGridView1->DataSource = dataTable;
+		dataGridView1->DataSource = borrow->dataTable;
 		dataGridView1->ReadOnly = true;
 
 		for (int i = 0; i < dataGridView1->Columns->Count; i++) {

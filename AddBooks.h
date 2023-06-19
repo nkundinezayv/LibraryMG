@@ -1,5 +1,6 @@
 #pragma once
 #include "DB_CONN.h"
+#include "book.h"
 namespace LibraryMG {
 	using namespace System::Data::SqlClient;
 	using namespace System;
@@ -81,17 +82,10 @@ namespace LibraryMG {
 		}
 #pragma endregion
 	private: System::Void AddBooks_Load(System::Object^ sender, System::EventArgs^ e) {
-		SqlConnection^ sqlConn = Db_CONN::GetSqlConnection();
-		sqlConn->Open();
+		Book^ book = gcnew Book();
+		book->addBook();
 
-		String^ query = "SELECT * FROM Books";
-		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(query, sqlConn);
-		DataTable^ dataTable = gcnew DataTable();
-
-		dataAdapter->Fill(dataTable);
-
-		dataGridView1->DataSource = dataTable;
-
+		dataGridView1->DataSource = book->dataTable;
 
 		for (int i = 0; i < dataGridView1->Columns->Count; i++) {
 			dataGridView1->Columns[i]->AutoSizeMode = DataGridViewAutoSizeColumnMode::AllCells;
